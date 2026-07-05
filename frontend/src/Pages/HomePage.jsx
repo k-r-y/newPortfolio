@@ -126,7 +126,7 @@ export default function HomePage(){
     return (
     <>
       <main className="w-full flex justify-center items-center">
-        <div className="flex flex-col min-screen  justify-center items-center max-w-300 px-2 py-5 gap-3">
+        <div className="flex flex-col min-screen  justify-center items-center max-w-300 px-2 py-5 gap-3 w-full">
           <div className="  flex flex-col lg:flex-row gap-3 justify-center items-start w-full">
             <section className="flex justify-center items-center gap-2 flex-col lg:max-w-4/12">
               {/****************************************************** PROFILE SECTION *******************************************/}
@@ -255,7 +255,7 @@ export default function HomePage(){
 
             {/****************************************************** ABOUT ME SECTION *******************************************/}
 
-            <section className="flex justify-center items-center gap-2 flex-col w-full lg:max-w-8/12">
+            <section className="flex justify-center items-center gap-2 flex-col w-full lg:max-w-8/12 min-w-0">
               <div className="border border-neutral-300  p-5 rounded-md shadow w-full ">
                 {/* About */}
                 <div className="mb-3 flex justify-between items-center ">
@@ -312,7 +312,7 @@ export default function HomePage(){
               </div>
 
               {/* Projects */}
-              <div className="border border-neutral-300  p-5 rounded-md shadow-sm     w-full ">
+              <div className="border border-neutral-300  p-5 rounded-md shadow-sm w-full min-w-0">
                 <div className="mb-3 flex justify-between items-center">
                   <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins">
                     <FaRegFolder />
