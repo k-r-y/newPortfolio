@@ -1,12 +1,6 @@
-import {
-  FaCode,
-  FaArrowRightLong,
-  FaLink,
-  FaRegImages,
-  FaRegFolder,
-  FaRegEnvelope,
-  FaRegUser,
-} from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
+
+import { BiCode, BiLink, BiImage, BiFolder, BiEnvelope, BiUser } from "react-icons/bi";
 
 import Bg from "./../assets/bg.jpg"
 import ContactDetailsCard from "./../components/ContactDetailsCard";
@@ -217,7 +211,7 @@ export default function HomePage(){
                 <div className="p-2 mb-3 w-full">
                   <div className="mb-3">
                     <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins">
-                      <FaLink />
+                      <BiLink />
                       Additional Details
                     </h2>
                   </div>
@@ -246,7 +240,7 @@ export default function HomePage(){
               <div className="border border-neutral-300  p-5 rounded-md shadow w-full">
                 <div className="mb-3">
                   <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins">
-                    <FaRegImages />
+                    <BiImage />
                     Gallery
                   </h2>
                 </div>
@@ -260,7 +254,7 @@ export default function HomePage(){
                 {/* About */}
                 <div className="mb-3 flex justify-between items-center ">
                   <h2 className="flex items-center justify-start gap-1 text-md font-semibold font-poppins">
-                    <FaRegUser />
+                    <BiUser />
                     About
                   </h2>
 
@@ -286,7 +280,7 @@ export default function HomePage(){
               <div className="border border-neutral-300  p-5 rounded-md shadow w-full ">
                 <div className="mb-3 flex justify-between items-center">
                   <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins">
-                    <FaCode />
+                    <BiCode />
                     Skills and Technologies
                   </h2>
 
@@ -315,7 +309,7 @@ export default function HomePage(){
               <div className="border border-neutral-300  p-5 rounded-md shadow-sm w-full min-w-0">
                 <div className="mb-3 flex justify-between items-center">
                   <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins">
-                    <FaRegFolder />
+                    <BiFolder />
                     Projects
                   </h2>
 
@@ -346,12 +340,12 @@ export default function HomePage(){
 
           {/****************************************************** CONTACT SECTION *******************************************/}
           <section
-            className="border border-neutral-300 p-5 rounded-md shadow-sm     w-full"
+            className="border bg-black border-neutral-300 p-5 rounded-md shadow-sm     w-full"
             id="contact"
           >
             <div className="mb-3">
               <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins">
-                <FaRegEnvelope />
+                <BiEnvelope />
                 Contact
               </h2>
             </div>
