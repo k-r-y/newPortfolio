@@ -3,12 +3,13 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { BiCode, BiLink, BiImage, BiFolder, BiEnvelope, BiUser } from "react-icons/bi";
 
 import Bg from "./../assets/bg.jpg"
+import Aperture from "./../assets/aperture.png"
+import Pfp from "./../assets/pic.jpg"
 import ContactDetailsCard from "./../components/ContactDetailsCard";
 import ProjectCard from "./../components/ProjectCard";
 import SkillCard from "./../components/SkillCard";
 import StatsCard from "./../components/StatsCard";
-import Aperture from "./../assets/aperture.png"
-import Pfp from "./../assets/pic.jpg"
+
 
 
 const contactDetails = [
@@ -119,7 +120,7 @@ const projects = [
 export default function HomePage(){
     return (
     <>
-      <main className="w-full flex justify-center items-center">
+      <main className="w-full flex justify-center items-center pb-20">
         <div className="flex flex-col min-screen  justify-center items-center max-w-300 px-2 py-5 gap-3 w-full">
           <div className="  flex flex-col lg:flex-row gap-3 justify-center items-start w-full">
             <section className="flex justify-center items-center gap-2 flex-col lg:max-w-4/12">
@@ -325,7 +326,7 @@ export default function HomePage(){
                   {projects.map((project) => {
                     return (
                       <ProjectCard
-                        id={project.id}
+                        key={project.id}
                         Title={project.Title}
                         Description={project.Description}
                         ImgLink={project.ImgLink}
@@ -340,7 +341,7 @@ export default function HomePage(){
 
           {/****************************************************** CONTACT SECTION *******************************************/}
           <section
-            className="border bg-black border-neutral-300 p-5 rounded-md shadow-sm     w-full"
+            className="border  border-neutral-300 p-5 rounded-md shadow-sm     w-full"
             id="contact"
           >
             <div className="mb-3">

@@ -1,16 +1,47 @@
 import { FaArrowRightLong, FaRegUser } from "react-icons/fa6";
+import SkillCard from "./../components/SkillCard";
+import { BiCode } from "react-icons/bi";
+
+const techStack = [
+  {
+    id: 1,
+    Type: "Backend & System",
+    Skills: ["Node.js", "PHP", "RESTful APIs"],
+  },
+  {
+    id: 2,
+    Type: "Frontend & UI",
+    Skills: [
+      "Vite",
+      "React",
+      "Tailwind CSS",
+      "CSS",
+      "HTML",
+      "Javascript (ES6+)",
+    ],
+  },
+  {
+    id: 3,
+    Type: "Database & DevOps",
+    Skills: ["Git", "MySQL", "AI-Assisted Workflow"],
+  },
+  {
+    id: 4,
+    Type: "Design Architecture",
+    Skills: ["Minimalism", "BentoGrid", "UI/UX", "Responsive Web Design"],
+  },
+];
 
 export default function SkillPage() {
   return (
     <>
-      <main className="flex justify-center items-center min-h-screen w-full">
+      <main className="flex justify-center items-center min-h-screen w-full pb-20">
         <section className="flex justify-center items-center max-w-300">
           <div className="border border-neutral-300  p-5 rounded-md shadow w-full ">
-            {/* About */}
-            <div className="mb-3 flex justify-between items-center ">
-              <h2 className="flex items-center justify-start gap-1 text-md font-semibold font-poppins">
-                <FaRegUser />
-                About
+            <div className="mb-3 flex justify-between items-center">
+              <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins">
+                <BiCode />
+                Skills and Technologies
               </h2>
 
               <div className="flex justify-center items-center gap-1 group text-neutral-600 hover:text-neutral-900 text-xs">
@@ -21,13 +52,17 @@ export default function SkillPage() {
               </div>
             </div>
 
-            <p className="text-sm text-neutral-600 text-justify font-mono">
-              I am a second-year Bachelor of Science in Information Systems
-              student with a strong focus on full-stack web development and
-              modern UI/UX architecture. I bridge the gap between robust backend
-              logic—like automated resource computation and multi-role data
-              management—and clean, minimalist frontend design.
-            </p>
+            <div className="flex gap-2 flex-col justify-center items-center w-full">
+              {techStack.map((skill) => {
+                return (
+                  <SkillCard
+                    key={skill.id}
+                    Type={skill.Type}
+                    Skills={skill.Skills}
+                  />
+                );
+              })}
+            </div>
           </div>
         </section>
       </main>
