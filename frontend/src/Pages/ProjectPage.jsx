@@ -45,7 +45,7 @@ export default function ProjectPage() {
   return (
     <>
       <main className="flex justify-center items-center min-h-screen w-full pb-20">
-        <section className="flex justify-center items-center max-w-300">
+        <section className="flex justify-center items-center max-w-300 w-full">
           <div className="border border-neutral-300  p-5 rounded-md shadow-sm w-full min-w-0">
             <div className="mb-3 flex justify-between items-center">
               <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins">
