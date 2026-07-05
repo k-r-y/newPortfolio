@@ -1,4 +1,4 @@
-import HomePage from "./Pages/Homepage"
+import HomePage from "./Pages/HomePage"
 import AboutPage from "./Pages/AboutPage"
 
 export default function App(){
