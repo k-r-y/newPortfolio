@@ -1,16 +1,21 @@
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import {
+  BiCode,
+  BiLink,
+  BiImage,
+  BiFolder,
+  BiEnvelope,
+  BiUser,
+} from "react-icons/bi";
 
-import { BiCode, BiLink, BiImage, BiFolder, BiEnvelope, BiUser } from "react-icons/bi";
-
-import Bg from "./../assets/bg.jpg"
-import Aperture from "./../assets/aperture.png"
-import Pfp from "./../assets/pic.jpg"
+import Bg from "./../assets/bg.jpg";
+import Aperture from "./../assets/aperture.png";
+import Pfp from "./../assets/pic.jpg";
 import ContactDetailsCard from "./../components/ContactDetailsCard";
 import ProjectCard from "./../components/ProjectCard";
 import SkillCard from "./../components/SkillCard";
 import StatsCard from "./../components/StatsCard";
-
-
 
 const contactDetails = [
   {
@@ -25,7 +30,6 @@ const contactDetails = [
   },
   { id: 3, Title: "Location", Data: "Dasmariñas City, Cavite" },
 ];
-
 
 const stats = [
   {
@@ -48,7 +52,6 @@ const stats = [
 const totalItems = stats.length;
 const middle = Math.floor(totalItems / 2);
 
- 
 const techStack = [
   {
     id: 1,
@@ -78,8 +81,6 @@ const techStack = [
     Skills: ["Minimalism", "BentoGrid", "UI/UX", "Responsive Web Design"],
   },
 ];
-
-
 
 const projects = [
   {
@@ -115,27 +116,26 @@ const projects = [
     ProjectLink: "youtube.com",
   },
 ];
- 
 
-export default function HomePage(){
-    return (
+export default function HomePage() {
+  return (
     <>
       <main className="w-full flex justify-center items-center pb-20">
-        <div className="flex flex-col min-screen  justify-center items-center max-w-300 px-2 py-5 gap-3 w-full">
+        <div className="flex flex-col min-h-screen  justify-center items-center max-w-6xl px-2 py-5 gap-3 w-full">
           <div className="  flex flex-col lg:flex-row gap-3 justify-center items-start w-full">
-            <section className="flex justify-center items-center gap-2 flex-col lg:max-w-4/12">
+            <section className="flex justify-center items-center gap-2 flex-col lg:w-4/12 w-full">
               {/****************************************************** PROFILE SECTION *******************************************/}
               <div className="border border-neutral-300 rounded-md shadow w-full p-2">
                 {/* Profile Pic */}
-                <div className="relative h-45 mb-10">
+                <div className="relative h-44 mb-10">
                   <img
                     src={Bg}
                     alt=""
                     className=" object-cover h-full w-full rounded"
                   />
 
-                  <div className="flex justify-start items-center gap-2 absolute top-34 left-3 w-full">
-                    <div className="w-25 h-25 relative">
+                  <div className="flex justify-start items-center gap-2 absolute top-36 left-3 w-full">
+                    <div className="w-24 h-24 relative">
                       <img
                         src={Pfp}
                         alt=""
@@ -207,7 +207,7 @@ export default function HomePage(){
                   </div>
                 </div>
 
-                <hr className="mx-15 my-5 text-neutral-400 " />
+                <hr className="mx-16 my-5 text-neutral-400 " />
 
                 <div className="p-2 mb-3 w-full">
                   <div className="mb-3">
@@ -250,7 +250,7 @@ export default function HomePage(){
 
             {/****************************************************** ABOUT ME SECTION *******************************************/}
 
-            <section className="flex justify-center items-center gap-2 flex-col w-full lg:max-w-8/12 min-w-0">
+            <section className="flex justify-center items-center gap-2 flex-col lg:w-8/12 min-w-0 w-full">
               <div className="border border-neutral-300  p-5 rounded-md shadow w-full ">
                 {/* About */}
                 <div className="mb-3 flex justify-between items-center ">
@@ -259,12 +259,20 @@ export default function HomePage(){
                     About
                   </h2>
 
-                  <div className="flex justify-center items-center gap-1 group text-neutral-600 hover:text-neutral-900 text-xs">
+                  <Link
+                    to="/About"
+                    className="flex justify-center items-center gap-1 group text-neutral-600 hover:text-neutral-900 text-xs"
+                  >
+                    <span>View More</span>
+                    <FaArrowRightLong className="group-hover:translate-x-2 ease-in-out duration-300" />
+                  </Link>
+
+                  {/* <div className="flex justify-center items-center gap-1 group text-neutral-600 hover:text-neutral-900 text-xs">
                     <a href="" className="">
                       View More
                     </a>
                     <FaArrowRightLong className="group-hover:translate-x-2 ease-in-out duration-300" />
-                  </div>
+                  </div> */}
                 </div>
 
                 <p className="text-sm text-neutral-600 text-justify font-mono">
@@ -285,12 +293,13 @@ export default function HomePage(){
                     Skills and Technologies
                   </h2>
 
-                  <div className="flex justify-center items-center gap-1 group text-neutral-600 hover:text-neutral-900 text-xs">
-                    <a href="" className="">
-                      View More
-                    </a>
+                  <Link
+                    to="/Skills"
+                    className="flex justify-center items-center gap-1 group text-neutral-600 hover:text-neutral-900 text-xs"
+                  >
+                    <span>View More</span>
                     <FaArrowRightLong className="group-hover:translate-x-2 ease-in-out duration-300" />
-                  </div>
+                  </Link>
                 </div>
 
                 <div className="flex gap-2 flex-col justify-center items-center w-full">
@@ -314,12 +323,13 @@ export default function HomePage(){
                     Projects
                   </h2>
 
-                  <div className="flex justify-center items-center gap-1 group text-neutral-600 hover:text-neutral-900 text-xs">
-                    <a href="" className="">
-                      View More
-                    </a>
+                  <Link
+                    to="/Projects"
+                    className="flex justify-center items-center gap-1 group text-neutral-600 hover:text-neutral-900 text-xs"
+                  >
+                    <span>View More</span>
                     <FaArrowRightLong className="group-hover:translate-x-2 ease-in-out duration-300" />
-                  </div>
+                  </Link>
                 </div>
 
                 <div className="flex snap-x justify-start scroll-auto items-center gap-5 overflow-x-scroll w-full flex-nowrap">
@@ -350,6 +360,11 @@ export default function HomePage(){
                 Contact
               </h2>
             </div>
+
+
+
+
+
           </section>
         </div>
       </main>
