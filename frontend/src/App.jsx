@@ -10,7 +10,7 @@ import {
 import AboutPage from "./Pages/AboutPage";
 import ProjectPage from "./Pages/ProjectPage";
 import SkillPage from "./Pages/SkillsPage";
-import HomePage from "./Pages/Homepage";
+import HomePage from "./Pages/Home";
 
 import {
   BrowserRouter as Router,
