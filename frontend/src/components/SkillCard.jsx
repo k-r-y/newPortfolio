@@ -3,7 +3,7 @@
 export default function SkillCard ({ Type, Skills }){
   return (
     <div className="flex flex-col justify-start items-start w-full gap-1">
-      <h2 className="text-sm">{Type}</h2>
+      <h3 className="text-sm">{Type}</h3>
       <div className="flex gap-2 flex-wrap">
         {Skills.map((skill, index) => {
           return (

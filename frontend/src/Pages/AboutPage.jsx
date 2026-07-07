@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <>
       <main className="flex justify-center items-center min-h-screen w-full">
-        <section className="flex justify-center items-center max-w-300">
+        <section className="flex justify-center items-center max-w-6xl">
           <div className="border border-neutral-300  p-5 rounded-md shadow w-full ">
             {/* About */}
             <div className="mb-3 flex justify-between items-center ">
