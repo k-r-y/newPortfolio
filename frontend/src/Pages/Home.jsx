@@ -177,43 +177,6 @@ export default function HomePage() {
     };
   }, [lightboxIndex, galleryImages.length]);
 
-  useEffect(() => {
-    const fetchGithubData = async () => {
-      try {
-        const updated = await Promise.all(
-          projectList.map(async (project) => {
-            try {
-              const res = await fetch(`https://api.github.com/repos/k-r-y/${project.repoName}`);
-              if (!res.ok) return project;
-              const data = await res.json();
-              
-              const date = new Date(data.updated_at);
-              const formattedDate = date.toLocaleDateString("en-US", {
-                month: "short",
-                year: "numeric",
-              });
-
-              return {
-                ...project,
-                Description: data.description || project.Description,
-                ProjectLink: data.html_url || project.ProjectLink,
-                Stars: String(data.stargazers_count),
-                Views: String(data.forks_count),
-                Updated: formattedDate,
-              };
-            } catch (err) {
-              return project;
-            }
-          })
-        );
-        setProjectList(updated);
-      } catch (e) {
-        console.error("Failed to fetch github repos", e);
-      }
-    };
-    fetchGithubData();
-  }, []);
-
   const onSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);

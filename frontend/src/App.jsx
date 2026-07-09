@@ -26,7 +26,9 @@ const SkillPage = lazy(() => import("./Pages/SkillsPage"));
 const LoadingSpinner = () => (
   <div className="min-h-screen w-full flex flex-col justify-center items-center gap-4 bg-neutral-50/50 dark:bg-neutral-950/50 backdrop-blur-xs">
     <div className="w-10 h-10 border-4 border-neutral-200 dark:border-neutral-800 border-t-black dark:border-t-white rounded-full animate-spin"></div>
-    <span className="text-sm font-poppins text-neutral-500 dark:text-neutral-450 font-medium">Loading...</span>
+    <span className="text-sm font-poppins text-neutral-500 dark:text-neutral-450 font-medium">
+      Loading...
+    </span>
   </div>
 );
 
@@ -49,7 +51,7 @@ function AppContent() {
         <div className="absolute left-[6%] md:left-[12%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40 "></div>
         <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40 hidden lg:block"></div>
         <div className="absolute right-[6%] md:right-[12%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
-        
+
         {/* Horizontal lines */}
         <div className="absolute top-20 left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
         <div className="absolute top-[40%] left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
@@ -91,13 +93,19 @@ function AppContent() {
               to="/"
               className={({ isActive }) =>
                 ` flex flex-col justify-center items-center text-2xl gap-0.5 hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:text-neutral-900 dark:hover:text-neutral-100 rounded-full py-1.5 w-full transition-all duration-200 ${
-                  isActive ? "bg-neutral-100 text-neutral-950 dark:bg-neutral-800 dark:text-white font-medium" : ""
+                  isActive
+                    ? "bg-neutral-100 text-neutral-950 dark:bg-neutral-800 dark:text-white font-medium"
+                    : ""
                 } `
               }
             >
               {({ isActive }) => (
                 <>
-                  {isActive ? <BiSolidHome /> : <BiHome />}
+                  {isActive ? (
+                    <BiSolidHome className="text-3xl" />
+                  ) : (
+                    <BiHome className="text-3xl" />
+                  )}
                   <span className="text-[10px] hidden sm:block">Home</span>
                 </>
               )}
@@ -109,13 +117,19 @@ function AppContent() {
               to="/About"
               className={({ isActive }) =>
                 ` flex flex-col justify-center items-center text-2xl gap-0.5 hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:text-neutral-900 dark:hover:text-neutral-100 rounded-full py-1.5 w-full transition-all duration-200 ${
-                  isActive ? "bg-neutral-100 text-neutral-950 dark:bg-neutral-800 dark:text-white font-medium" : ""
+                  isActive
+                    ? "bg-neutral-100 text-neutral-950 dark:bg-neutral-800 dark:text-white font-medium"
+                    : ""
                 } `
               }
             >
               {({ isActive }) => (
                 <>
-                  {isActive ? <BiSolidUser /> : <BiUser />}
+                  {isActive ? (
+                    <BiSolidUser className="text-3xl" />
+                  ) : (
+                    <BiUser className="text-3xl" />
+                  )}
                   <span className="text-[10px] hidden sm:block">About</span>
                 </>
               )}
@@ -127,12 +141,18 @@ function AppContent() {
               to="/Skills"
               className={({ isActive }) =>
                 ` flex flex-col justify-center items-center text-2xl gap-0.5 hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:text-neutral-900 dark:hover:text-neutral-100 rounded-full py-1.5 w-full transition-all duration-200 ${
-                  isActive ? "bg-neutral-100 text-neutral-950 dark:bg-neutral-800 dark:text-white font-medium" : ""
+                  isActive
+                    ? "bg-neutral-100 text-neutral-950 dark:bg-neutral-800 dark:text-white font-medium"
+                    : ""
                 } `
               }
             >
-              <BiCode />
-              <span className="text-[10px] hidden sm:block">Skills</span>
+              {({ isActive }) => (
+                <>
+                  {isActive ? <BiCode className="bg-black" /> : <BiCode />}
+                  <span className="text-[10px] hidden sm:block">Skills</span>
+                </>
+              )}
             </NavLink>
           </li>
 
@@ -141,13 +161,19 @@ function AppContent() {
               to="/Projects"
               className={({ isActive }) =>
                 ` flex flex-col justify-center items-center text-2xl gap-0.5 hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:text-neutral-900 dark:hover:text-neutral-100 rounded-full py-1.5 w-full transition-all duration-200 ${
-                  isActive ? "bg-neutral-100 text-neutral-950 dark:bg-neutral-800 dark:text-white font-medium" : ""
+                  isActive
+                    ? "bg-neutral-100 text-neutral-950 dark:bg-neutral-800 dark:text-white font-medium"
+                    : ""
                 } `
               }
             >
               {({ isActive }) => (
                 <>
-                  {isActive ? <BiSolidFolder /> : <BiFolder />}
+                  {isActive ? (
+                    <BiSolidFolder className="text-3xl" />
+                  ) : (
+                    <BiFolder className="text-3xl" />
+                  )}
                   <span className="text-[10px] hidden sm:block">Projects</span>
                 </>
               )}

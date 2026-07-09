@@ -145,70 +145,12 @@ Tech Stack:
     }
   }, []);
 
-  useEffect(() => {
-    const fetchGithubData = async () => {
-      try {
-        const updated = await Promise.all(
-          projectList.map(async (project) => {
-            try {
-              const res = await fetch(`https://api.github.com/repos/k-r-y/${project.repoName}`);
-              if (!res.ok) return project;
-              const data = await res.json();
-              
-              const date = new Date(data.updated_at);
-              const formattedDate = date.toLocaleDateString("en-US", {
-                month: "short",
-                year: "numeric",
-              });
-
-              return {
-                ...project,
-                Description: data.description || project.Description,
-                ProjectLink: data.html_url || project.ProjectLink,
-                Stars: String(data.stargazers_count),
-                Views: String(data.forks_count),
-                Updated: formattedDate,
-              };
-            } catch (err) {
-              return project;
-            }
-          })
-        );
-        setProjectList(updated);
-      } catch (e) {
-        console.error("Failed to fetch github repos", e);
-      }
-    };
-    fetchGithubData();
-  }, []);
-
-  // Fetch README content on demand when a drawer is expanded
-  const handleToggleReadme = async (repoName) => {
+  // Simple toggle for README drawer
+  const handleToggleReadme = (repoName) => {
     if (expandedRepo === repoName) {
       setExpandedRepo(null);
-      return;
-    }
-    
-    setExpandedRepo(repoName);
-    
-    // If we've already fetched it online, don't fetch again
-    // (Note: we check if the string contains more than our seed data or matches the seed)
-    // To be simple, we only fetch if we don't have it or if it is our default short seed
-    // We can fetch to get the full formatted file if they click it
-    setReadmeLoading(prev => ({ ...prev, [repoName]: true }));
-    try {
-      const res = await fetch(`https://api.github.com/repos/k-r-y/${repoName}/readme`);
-      if (!res.ok) throw new Error("No README found");
-      const data = await res.json();
-      
-      // Decode base64 content safely
-      const decoded = atob(data.content.replace(/\s/g, ''));
-      setReadmes(prev => ({ ...prev, [repoName]: decoded }));
-    } catch (err) {
-      // Fallback is already inside state, so do nothing (it will show the seeded details)
-      console.log("Using pre-seeded fallback README content");
-    } finally {
-      setReadmeLoading(prev => ({ ...prev, [repoName]: false }));
+    } else {
+      setExpandedRepo(repoName);
     }
   };
 
