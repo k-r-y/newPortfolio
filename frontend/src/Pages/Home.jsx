@@ -212,7 +212,7 @@ export default function HomePage() {
 
   return (
     <>
-      <main className="w-full flex justify-center items-center pb-20  text-neutral-850 dark:text-neutral-200">
+      <main className="w-full flex justify-center items-center pb-20  text-neutral-850 dark:text-neutral-200 ">
         <div className="flex flex-col min-h-screen  justify-center items-center max-w-6xl px-1 py-5 gap-3 w-full">
           <div className="  flex flex-col lg:flex-row gap-3 justify-center items-start w-full">
             <section className="flex justify-center items-center gap-2 flex-col lg:w-4/12 w-full">

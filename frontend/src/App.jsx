@@ -87,7 +87,7 @@ function AppContent() {
 
       {/* Bottom Navigation Bar */}
       <nav className="flex justify-center items-center fixed z-20 bottom-3 inset-x-0">
-        <ul className="flex justify-between items-center h-full rounded-full bg-white/70 dark:bg-neutral-900/65 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 px-2 gap-1 py-1.5 w-full max-w-85 shadow-md dark:shadow-2xl text-neutral-500 dark:text-neutral-400">
+        <ul className="flex justify-between items-center h-full rounded-full bg-neutral-500/10 dark:bg-neutral-900/65 backdrop-blur-sm border border-neutral-200 dark:border-neutral-800 px-2 gap-1 py-1.5 w-full max-w-90 shadow-md dark:shadow-2xl text-neutral-500 dark:text-neutral-400">
           <li className="flex-1">
             <NavLink
               to="/"
@@ -149,8 +149,8 @@ function AppContent() {
             >
               {({ isActive }) => (
                 <>
-                  {isActive ? <BiCode className="bg-black" /> : <BiCode />}
-                  <span className="text-[10px] hidden sm:block">Skills</span>
+                  {isActive ? <BiCode className="bg-black text-3xl text-white rounded dark:text-black dark:bg-white" /> : <BiCode className="text-3xl" />}
+                  <span className="text-[10px] hidden sm:block ">Skills</span>
                 </>
               )}
             </NavLink>
