@@ -13,32 +13,32 @@ export default function AboutPage() {
     },
     {
       id: 2,
-      institution: "Secondary High School",
-      degree: "ICT / STEM Strand",
+      institution: "Dr. Jose P. Rizal Senior High School",
+      degree: "Computer System Servicing Strand",
       period: "2022 - 2024",
-      description: "Laid down the foundations of programming, algorithm design, basic web design, and computational thinking.",
+      description: "Laid down the foundations of computer related things mainly about hardwares and servers.",
     }
   ];
 
   const certifications = [
-    {
-      id: 1,
-      title: "Responsive Web Design",
-      issuer: "FreeCodeCamp",
-      date: "Jan 2025",
-    },
-    {
-      id: 2,
-      title: "JavaScript Algorithms & Data Structures",
-      issuer: "FreeCodeCamp",
-      date: "Feb 2025",
-    },
-    {
-      id: 3,
-      title: "Front-End Development Libraries",
-      issuer: "Coursera / Meta",
-      date: "May 2025",
-    }
+    // {
+    //   id: 1,
+    //   title: "Responsive Web Design",
+    //   issuer: "FreeCodeCamp",
+    //   date: "Jan 2025",
+    // },
+    // {
+    //   id: 2,
+    //   title: "JavaScript Algorithms & Data Structures",
+    //   issuer: "FreeCodeCamp",
+    //   date: "Feb 2025",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Front-End Development Libraries",
+    //   issuer: "Coursera / Meta",
+    //   date: "May 2025",
+    // }
   ];
 
   const softSkills = ["Analytical Thinking", "Communication", "Problem Solving", "Adaptability", "Collaboration", "Continuous Learning"];
@@ -83,7 +83,7 @@ export default function AboutPage() {
             {education.map((edu) => (
               <div key={edu.id} className="relative">
                 {/* Node dot */}
-                <div className="absolute -left-[31px] top-1.5 bg-neutral-800 border-4 border-white dark:bg-neutral-200 dark:border-neutral-950 rounded-full w-4.5 h-4.5"></div>
+                <div className="absolute -left-8.5 top-1.5 bg-neutral-800 border-4 border-white dark:bg-neutral-200 dark:border-neutral-950 rounded-full w-4.5 h-4.5"></div>
                 <div className="flex flex-col gap-1.5">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                     <h3 className="font-bold text-sm font-poppins text-neutral-900 dark:text-neutral-100">{edu.degree}</h3>
@@ -106,7 +106,7 @@ export default function AboutPage() {
               <BiAward className="text-xl text-neutral-800 dark:text-neutral-200" /> Certifications
             </h2>
             <div className="flex flex-col gap-3.5 grow justify-start">
-              {certifications.map((cert) => (
+              {certifications.length > 0 ? (certifications.map((cert) => (
                 <div key={cert.id} className="flex justify-between items-center border-b border-neutral-200/50 dark:border-neutral-800/40 pb-2 last:border-b-0">
                   <div className="flex flex-col">
                     <span className="text-xs font-semibold font-poppins text-neutral-900 dark:text-neutral-100">{cert.title}</span>
@@ -114,7 +114,9 @@ export default function AboutPage() {
                   </div>
                   <span className="text-[10px] font-mono px-2 py-0.5 bg-neutral-100 border border-neutral-200 dark:bg-neutral-950 dark:border-neutral-800 rounded text-neutral-600 dark:text-neutral-450">{cert.date}</span>
                 </div>
-              ))}
+              ))) : (
+                <h4 className="h-full text-center flex justify-center items-center text-sm font-mono px-2 py-0.5 text-neutral-500">No Certifications.</h4>
+              ) }
             </div>
           </section>
 

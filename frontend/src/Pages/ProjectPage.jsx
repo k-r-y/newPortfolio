@@ -260,7 +260,7 @@ Tech Stack:
                         {/* Title and Category */}
                         <td className="p-4 align-top">
                           <div className="flex flex-col gap-1.5">
-                            <span className="font-bold text-neutral-900 dark:text-neutral-100 font-poppins text-sm font-semibold">
+                            <span className=" text-neutral-900 dark:text-neutral-100 font-poppins text-sm font-semibold">
                               {project.Title}
                             </span>
                             <div className="flex flex-wrap items-center gap-2">
@@ -362,7 +362,7 @@ Tech Stack:
                     {/* Top line with title and category */}
                     <div className="flex justify-between items-start gap-2">
                       <div className="flex flex-col gap-1">
-                        <span className="font-bold text-neutral-900 dark:text-neutral-100 font-poppins text-sm font-semibold">
+                        <span className=" text-neutral-900 dark:text-neutral-100 font-poppins text-sm font-semibold">
                           {project.Title}
                         </span>
                         <div className="flex items-center gap-2">
