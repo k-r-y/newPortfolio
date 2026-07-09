@@ -14,7 +14,7 @@ export default function ProjectCard({
     : `https://${ProjectLink}`;
 
   return (
-    <div className="shrink-0 w-80 snap-start border border-neutral-200 dark:border-neutral-800 rounded-lg flex flex-col justify-between h-full bg-white dark:bg-neutral-900/70 hover:border-neutral-350 dark:hover:border-neutral-700/80 shadow-2xs hover:shadow-xs transition-all duration-250 overflow-hidden text-neutral-800 dark:text-neutral-200">
+    <div className="shrink-0 w-80 snap-start border border-neutral-200 dark:border-neutral-800 rounded-lg flex flex-col justify-between h-full bg-white dark:bg-neutral-800/50 hover:border-neutral-350 dark:hover:border-neutral-700/80 shadow-2xs hover:shadow-xs transition-all duration-250 overflow-hidden text-neutral-800 dark:text-neutral-200">
       <div>
         {/* Image Container with bottom border */}
         <div className="overflow-hidden w-full h-40 bg-neutral-100 dark:bg-neutral-850 border-b border-neutral-200 dark:border-b-neutral-800/80">

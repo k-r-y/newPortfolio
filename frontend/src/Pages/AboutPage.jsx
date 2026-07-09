@@ -46,11 +46,11 @@ export default function AboutPage() {
   const interests = ["UI/UX Design", "AI workflows", "Open Source", "Photography", "System Architecture"];
 
   return (
-    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 bg-neutral-50 dark:bg-neutral-950 text-neutral-800 dark:text-neutral-200 min-h-screen">
+    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 text-neutral-800 dark:text-neutral-200 min-h-screen">
       <div className="max-w-4xl w-full flex flex-col gap-8">
         
         {/* Profile Intro Section */}
-        <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 md:p-8 bg-white dark:bg-neutral-900/70 flex flex-col md:flex-row gap-6 items-center md:items-start w-full">
+        <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 md:p-8 bg-white dark:bg-neutral-800/50 flex flex-col md:flex-row gap-6 items-center md:items-start w-full">
           <div className="w-24 h-24 md:w-32 md:h-32 relative shrink-0">
             <img
               src={Pfp}
@@ -75,7 +75,7 @@ export default function AboutPage() {
         </section>
 
         {/* Education & Experience Section */}
-        <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 md:p-8 bg-white dark:bg-neutral-900/70 w-full">
+        <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 md:p-8 bg-white dark:bg-neutral-800/50 w-full">
           <h2 className="text-lg font-semibold font-poppins text-neutral-900 dark:text-neutral-100 flex items-center gap-2 mb-6 border-b border-neutral-200 dark:border-neutral-800 pb-2">
             <BiBookOpen className="text-xl text-neutral-800 dark:text-neutral-200" /> Education & Journey
           </h2>
@@ -101,7 +101,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           
           {/* Certifications */}
-          <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-900/70 flex flex-col">
+          <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-800/50 flex flex-col">
             <h2 className="text-lg font-semibold font-poppins text-neutral-900 dark:text-neutral-100 flex items-center gap-2 mb-4 border-b border-neutral-200 dark:border-neutral-800 pb-2">
               <BiAward className="text-xl text-neutral-800 dark:text-neutral-200" /> Certifications
             </h2>
@@ -121,7 +121,7 @@ export default function AboutPage() {
           </section>
 
           {/* Interests & Skills */}
-          <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-900/70 flex flex-col gap-6">
+          <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-800/50 flex flex-col gap-6">
             <div>
               <h2 className="text-lg font-semibold font-poppins text-neutral-900 dark:text-neutral-100 flex items-center gap-2 mb-3 border-b border-neutral-200 dark:border-neutral-800 pb-2">
                 <BiBriefcase className="text-xl text-neutral-800 dark:text-neutral-200" /> Professional Skills

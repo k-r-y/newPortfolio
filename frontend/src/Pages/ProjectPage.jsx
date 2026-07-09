@@ -206,11 +206,11 @@ Tech Stack:
     : projectList.filter(project => project.Category === activeCategory);
 
   return (
-    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 bg-neutral-50 dark:bg-neutral-950 text-neutral-800 dark:text-neutral-200 min-h-screen">
+    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32  text-neutral-800 dark:text-neutral-200 min-h-screen">
       <div className="max-w-5xl w-full flex flex-col gap-8">
         
         {/* Header Section */}
-        <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-900/70 w-full text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+        <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-800/50 w-full text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
             <h1 className="text-2xl font-bold font-poppins text-neutral-900 dark:text-neutral-100 flex items-center justify-center md:justify-start gap-2 mb-2">
               <BiFolder /> Project Registry
@@ -240,7 +240,7 @@ Tech Stack:
 
         {/* Table Display */}
         {filteredProjects.length > 0 ? (
-          <div className="w-full overflow-hidden border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm bg-white dark:bg-neutral-900/70 animate-in fade-in duration-200">
+          <div className="w-full overflow-hidden border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm bg-white dark:bg-neutral-800/50 animate-in fade-in duration-200">
             {/* Desktop Table */}
             <table className="w-full border-collapse text-left hidden md:table">
               <thead>

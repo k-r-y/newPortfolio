@@ -55,11 +55,11 @@ export default function SkillPage() {
   const tools = ["VS Code", "Git / GitHub", "npm / Node Package Manager", "Chrome DevTools", "Postman", "Web3Forms", "Figma"];
 
   return (
-    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 bg-neutral-50 dark:bg-neutral-950 text-neutral-800 dark:text-neutral-200 min-h-screen">
+    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 text-neutral-800 dark:text-neutral-200 min-h-screen">
       <div className="max-w-4xl w-full flex flex-col gap-8">
         
         {/* Header Section */}
-        <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-900/70 w-full text-center md:text-left">
+        <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-800/50 w-full text-center md:text-left">
           <h1 className="text-2xl font-bold font-poppins text-neutral-900 dark:text-neutral-100 flex items-center justify-center md:justify-start gap-2 mb-2">
             <BiCodeAlt /> Skills & Technologies
           </h1>
@@ -73,7 +73,7 @@ export default function SkillPage() {
           {categories.map((category) => (
             <div 
               key={category.id} 
-              className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-900/70 flex flex-col hover:shadow-2xs transition-shadow duration-300"
+              className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-800/50 flex flex-col hover:shadow-2xs transition-shadow duration-300"
             >
               <h2 className="text-md font-semibold font-poppins text-neutral-900 dark:text-neutral-100 flex items-center gap-2 mb-5 border-b border-neutral-200 dark:border-neutral-800 pb-2.5">
                 {category.icon} {category.title}
@@ -87,7 +87,7 @@ export default function SkillPage() {
                       <span className="font-mono text-neutral-400 dark:text-neutral-500 text-[10px]">{skill.level}</span>
                     </div>
                     {/* Progress Bar Container */}
-                    <div className="w-full h-1.5 bg-neutral-200/60 dark:bg-neutral-900/70/80 rounded-full overflow-hidden">
+                    <div className="w-full h-1.5 bg-neutral-200/60 dark:bg-neutral-800/50/80 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-neutral-950 dark:bg-neutral-100 rounded-full transition-all duration-500"
                         style={{ width: skill.level }}
@@ -100,7 +100,7 @@ export default function SkillPage() {
           ))}
 
           {/* Development Environment & Tools (desktop span-2) */}
-          <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-900/70 md:col-span-2 w-full">
+          <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-800/50 md:col-span-2 w-full">
             <h2 className="text-md font-semibold font-poppins text-neutral-900 dark:text-neutral-100 flex items-center gap-2 mb-4 border-b border-neutral-200 dark:border-neutral-800 pb-2.5">
               <BiTerminal className="text-xl text-neutral-800 dark:text-neutral-200" /> Development Tools & Ecosystem
             </h2>

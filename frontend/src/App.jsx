@@ -46,14 +46,14 @@ function AppContent() {
       {/* Background wireframe layout gridlines (Z-0) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Vertical lines */}
-        <div className="absolute left-[6%] md:left-[12%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
-        <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-neutral-200/50 dark:bg-neutral-800/20 hidden lg:block"></div>
+        <div className="absolute left-[6%] md:left-[12%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40 "></div>
+        <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40 hidden lg:block"></div>
         <div className="absolute right-[6%] md:right-[12%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
         
         {/* Horizontal lines */}
-        <div className="absolute top-[80px] left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
-        <div className="absolute top-[40%] left-0 right-0 h-[1px] bg-neutral-200/50 dark:bg-neutral-800/20"></div>
-        <div className="absolute top-[75%] left-0 right-0 h-[1px] bg-neutral-200/50 dark:bg-neutral-800/20"></div>
+        <div className="absolute top-20 left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
+        <div className="absolute top-[40%] left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
+        <div className="absolute top-[75%] left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
       </div>
 
       {/* Theme Toggle Button - Floating at Top Left */}

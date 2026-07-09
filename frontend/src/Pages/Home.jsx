@@ -238,12 +238,12 @@ export default function HomePage() {
 
   return (
     <>
-      <main className="w-full flex justify-center items-center pb-20 bg-neutral-50 dark:bg-neutral-950 text-neutral-850 dark:text-neutral-200">
+      <main className="w-full flex justify-center items-center pb-20  text-neutral-850 dark:text-neutral-200">
         <div className="flex flex-col min-h-screen  justify-center items-center max-w-6xl px-1 py-5 gap-3 w-full">
           <div className="  flex flex-col lg:flex-row gap-3 justify-center items-start w-full">
             <section className="flex justify-center items-center gap-2 flex-col lg:w-4/12 w-full">
               {/****************************************************** PROFILE SECTION *******************************************/}
-              <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm w-full p-2 bg-white dark:bg-neutral-900/70">
+              <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm w-full p-2 bg-white dark:bg-neutral-800/50">
                 {/* Profile Pic */}
                 <div className="relative h-44 mb-10">
                   <img
@@ -328,7 +328,7 @@ export default function HomePage() {
 
               {/* Additional Details */}
 
-              <div className="border border-neutral-200 dark:border-neutral-800 p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-900/70 text-neutral-800 dark:text-neutral-200">
+              <div className="border border-neutral-200 dark:border-neutral-800 p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-800/50 text-neutral-800 dark:text-neutral-200">
                 <div className="mb-3.5">
                   <h2 className="flex items-center justify-start gap-1 text-md font-semibold font-poppins text-neutral-900 dark:text-neutral-100">
                     <BiLink className="text-lg" />
@@ -353,7 +353,7 @@ export default function HomePage() {
               </div>
 
               {/* Gallery */}
-              <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-900/70 text-neutral-800 dark:text-neutral-200">
+              <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-800/50 text-neutral-800 dark:text-neutral-200">
                 <div className="mb-3">
                   <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins text-neutral-900 dark:text-neutral-100">
                     <BiImage />
@@ -403,7 +403,7 @@ export default function HomePage() {
             {/****************************************************** ABOUT ME SECTION *******************************************/}
 
             <section className="flex justify-center items-center gap-2 flex-col lg:w-8/12 min-w-0 w-full">
-              <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-900/70 text-neutral-800 dark:text-neutral-200">
+              <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-800/50 text-neutral-800 dark:text-neutral-200">
                 {/* About */}
                 <div className="mb-3 flex justify-between items-center x">
                   <h2 className="flex items-center justify-start gap-1 text-md font-semibold font-poppins text-neutral-900 dark:text-neutral-100">
@@ -431,7 +431,7 @@ export default function HomePage() {
               </div>
 
               {/* Skills */}
-              <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-900/70 text-neutral-800 dark:text-neutral-200">
+              <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-800/50 text-neutral-800 dark:text-neutral-200">
                 <div className="mb-3 flex justify-between items-center">
                   <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins text-neutral-900 dark:text-neutral-100">
                     <BiCode />
@@ -461,7 +461,7 @@ export default function HomePage() {
               </div>
 
               {/* Projects */}
-              <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full min-w-0 bg-white dark:bg-neutral-900/70 text-neutral-800 dark:text-neutral-200">
+              <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full min-w-0 bg-white dark:bg-neutral-800/50 text-neutral-800 dark:text-neutral-200">
                 <div className="mb-3 flex justify-between items-center">
                   <h2 className=" flex items-center justify-start gap-1 text-md font-semibold font-poppins text-neutral-900 dark:text-neutral-100">
                     <BiFolder />
@@ -499,7 +499,7 @@ export default function HomePage() {
           </div>
 
           {/****************************************************** CONTACT SECTION *******************************************/}
-          <section className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-3 w-full bg-white dark:bg-neutral-900/70 mt-4 text-neutral-850 dark:text-neutral-200 shadow-sm" id="contact">
+          <section className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-3 w-full bg-white dark:bg-neutral-800/50 mt-4 text-neutral-850 dark:text-neutral-200 shadow-sm" id="contact">
             <div className="flex justify-center items-stretch gap-1 w-full flex-col md:flex-row ">
               <div className="flex justify-start items-start gap-5 flex-col  w-full rounded-sm md:w-4/12 overflow-hidden relative border border-neutral-200 dark:border-neutral-800">
                 <img
