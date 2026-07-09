@@ -1,7 +1,19 @@
+import { useEffect } from "react";
 import { BiCodeAlt, BiServer, BiPaintRoll, BiTerminal } from "react-icons/bi";
 import { FaDatabase } from "react-icons/fa6";
 
 export default function SkillPage() {
+  useEffect(() => {
+    document.title = "Skills | Prince Andrew Casiano";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Explore the technical skillset and development tools of Prince Andrew Casiano, including React, Node.js, PHP, MySQL, Git, Tailwind CSS, and UI/UX BentoGrid design."
+      );
+    }
+  }, []);
+
   const categories = [
     {
       id: 1,

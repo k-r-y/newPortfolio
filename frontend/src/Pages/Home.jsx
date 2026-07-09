@@ -99,7 +99,7 @@ export default function HomePage() {
       ImgLink: Bg,
       Description: "A web-based order management system designed for catering businesses to streamline event bookings, manage client relationships, process payments, and coordinate job assignments with role-based scoped access.",
       ProjectLink: "https://github.com/k-r-y/yazzie-2.0",
-      Tech: ["PHP", "HTML5", "CSS3", "Bootstrap", "JavaScript"],
+      Tech: ["PHP", "MySQL", "CSS3", "Bootstrap", "JavaScript"],
       Views: "0",
       Stars: "0",
       Updated: "Jun 2026",
@@ -146,6 +146,17 @@ export default function HomePage() {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
+
+  useEffect(() => {
+    document.title = "Prince Andrew Casiano | Portfolio";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Portfolio of Prince Andrew Casiano, a Full-Stack Software Engineer & BSIS Student specializing in building responsive, scalable web applications and intuitive UI/UX design systems."
+      );
+    }
+  }, []);
 
   useEffect(() => {
     if (lightboxIndex === null) return;

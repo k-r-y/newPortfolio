@@ -1,8 +1,20 @@
+import { useEffect } from "react";
 import { FaRegUser } from "react-icons/fa6";
 import { BiBookOpen, BiAward, BiHeart, BiBriefcase } from "react-icons/bi";
 import Pfp from "./../assets/pic.webp";
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.title = "About | Prince Andrew Casiano";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Learn about Prince Andrew Casiano's academic journey at Kolehiyo ng Lungsod ng Dasmariñas, certification goals, soft skills, and personal interests in web design and system architecture."
+      );
+    }
+  }, []);
+
   const education = [
     {
       id: 1,

@@ -26,7 +26,7 @@ export default function ProjectPage() {
       ImgLink: Bg,
       Description: "A web-based order management system designed for catering businesses to streamline event bookings, manage client relationships, process payments, and coordinate job assignments with role-based scoped access.",
       ProjectLink: "https://github.com/k-r-y/yazzie-2.0",
-      Tech: ["PHP", "HTML5", "CSS3", "Bootstrap", "JavaScript"],
+      Tech: ["PHP", "MySQL", "CSS3", "Bootstrap", "JavaScript"],
       Category: "Fullstack",
       Views: "0",
       Stars: "0",
@@ -133,6 +133,17 @@ Tech Stack:
 - Frontend: HTML, CSS, JavaScript`
   });
   const [readmeLoading, setReadmeLoading] = useState({});
+
+  useEffect(() => {
+    document.title = "Projects | Prince Andrew Casiano";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Browse the portfolio projects built by Prince Andrew Casiano, including the Grade Portal System, Yazzie Catering OMS, Aperture Studio Booking, and custom React utilities."
+      );
+    }
+  }, []);
 
   useEffect(() => {
     const fetchGithubData = async () => {
