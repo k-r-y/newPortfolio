@@ -9,6 +9,7 @@ export default function ProjectCard ({ Title, Description, ImgLink, ProjectLink 
           <img
             src={ImgLink}
             alt={Title}
+            loading="lazy"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
           />
         </div>

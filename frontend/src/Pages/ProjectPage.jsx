@@ -2,9 +2,9 @@ import { FaArrowRightLong, FaRegUser } from "react-icons/fa6";
 import ProjectCard from "./../components/ProjectCard";
 import { BiFolder } from "react-icons/bi";
 
-import Bg from "./../assets/bg.jpg";
-import Aperture from "./../assets/aperture.png";
-import Pfp from "./../assets/pic.jpg";
+import Bg from "./../assets/bg.webp";
+import Aperture from "./../assets/aperture.webp";
+import Pfp from "./../assets/pic.webp";
 
 const projects = [
   {

@@ -4,14 +4,14 @@ import { BiCode, BiLink, BiImage, BiFolder, BiUser } from "react-icons/bi";
 
 import { useState } from "react";
 
-import Bg from "./../assets/bg.jpg";
-import Aperture from "./../assets/aperture.png";
-import Pfp from "./../assets/pic.jpg";
+import Bg from "./../assets/bg.webp";
+import Aperture from "./../assets/aperture.webp";
+import Pfp from "./../assets/pic.webp";
 import ContactDetailsCard from "../components/ContactDetailsCard";
 import ProjectCard from "../components/ProjectCard";
 import SkillCard from "../components/SkillCard";
 import StatsCard from "../components/StatsCard";
-import ContactBg from "./../assets/contactBg.jpg";
+import ContactBg from "./../assets/contactBg.webp";
 
 const contactDetails = [
   {
@@ -384,6 +384,7 @@ export default function HomePage() {
               <div className="flex justify-start items-start gap-5 flex-col  w-full rounded-sm md:w-4/12 overflow-hidden relative  ">
                 <img
                   src={ContactBg}
+                  loading="lazy"
                   className="h-50 md:h-120 object-cover w-full rounded-sm"
                   alt=""
                 />

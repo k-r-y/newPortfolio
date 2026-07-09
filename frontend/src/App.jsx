@@ -7,10 +7,7 @@ import {
   BiSolidHome,
   BiSolidFolder,
 } from "react-icons/bi";
-import AboutPage from "./Pages/AboutPage";
-import ProjectPage from "./Pages/ProjectPage";
-import SkillPage from "./Pages/SkillsPage";
-import HomePage from "./Pages/Home";
+import { lazy, Suspense } from "react";
 
 import {
   BrowserRouter as Router,
@@ -20,18 +17,32 @@ import {
   useNavigate,
 } from "react-router-dom";
 
+const HomePage = lazy(() => import("./Pages/Home"));
+const AboutPage = lazy(() => import("./Pages/AboutPage"));
+const ProjectPage = lazy(() => import("./Pages/ProjectPage"));
+const SkillPage = lazy(() => import("./Pages/SkillsPage"));
+
+const LoadingSpinner = () => (
+  <div className="min-h-screen w-full flex flex-col justify-center items-center gap-4 bg-neutral-50/50 backdrop-blur-xs">
+    <div className="w-10 h-10 border-4 border-neutral-200 border-t-black rounded-full animate-spin"></div>
+    <span className="text-sm font-poppins text-neutral-500 font-medium">Loading...</span>
+  </div>
+);
+
 export default function App() {
   return (
     <>
       <Router>
         <main className="grow flex items-center justify-center p-1">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/About" element={<AboutPage />} />
-            <Route path="/Projects" element={<ProjectPage />} />
-            <Route path="/Skills" element={<SkillPage />} />
-            <Route path="*" element={<HomePage />} />
-          </Routes>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/About" element={<AboutPage />} />
+              <Route path="/Projects" element={<ProjectPage />} />
+              <Route path="/Skills" element={<SkillPage />} />
+              <Route path="*" element={<HomePage />} />
+            </Routes>
+          </Suspense>
         </main>
 
         <nav className="flex justify-center items-center fixed z-10 bottom-3 inset-x-0">
