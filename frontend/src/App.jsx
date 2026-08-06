@@ -17,6 +17,7 @@ import {
   NavLink,
 } from "react-router-dom";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import { HelmetProvider } from "react-helmet-async";
 
 const HomePage = lazy(() => import("./Pages/Home"));
 const AboutPage = lazy(() => import("./Pages/AboutPage"));
@@ -34,9 +35,11 @@ const LoadingSpinner = () => (
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

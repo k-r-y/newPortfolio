@@ -3,174 +3,44 @@ import { Link } from "react-router-dom";
 import { BiCode, BiLink, BiImage, BiFolder, BiUser, BiChevronLeft, BiChevronRight, BiX } from "react-icons/bi";
 
 import { useState, useEffect } from "react";
-
+import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import Bg from "./../assets/bg.webp";
-import Aperture from "./../assets/aperture.webp";
 import Pfp from "./../assets/pic.webp";
 import ContactDetailsCard from "../components/ContactDetailsCard";
 import ProjectCard from "../components/ProjectCard";
 import SkillCard from "../components/SkillCard";
 import StatsCard from "../components/StatsCard";
 import ContactBg from "./../assets/contactBg.webp";
-import SkillBuilderImg from './../assets/skillBuilder.png'
-import RandomyImg from './../assets/randomy.png'
-import PcgImg from './../assets/pcg.png'
-import YazzieImg from './../assets/yazzie.png'
 
-
-const contactDetails = [
-  {
-    id: 1,
-    Title: "Email",
-    Data: "casianoprince5@gmail.com",
-  },
-  {
-    id: 2,
-    Title: "School",
-    Data: "Kolehiyo ng Lungsod ng Dasmariñas",
-  },
-  { id: 3, Title: "Location", Data: "Dasmariñas City, Cavite" },
-];
-
-const stats = [
-  {
-    id: 1,
-    Title: "Projects",
-    Value: 5,
-  },
-  {
-    id: 2,
-    Title: "Technologies",
-    Value: "10+",
-  },
-  {
-    id: 3,
-    Title: "Reviews",
-    Value: 4.5,
-  },
-];
+import { contactDetails, stats, techStack, projectList, galleryImages } from "../constants/data";
 
 const totalItems = stats.length;
 const middle = Math.floor(totalItems / 2);
 
-const techStack = [
-  {
-    id: 1,
-    Type: "Backend & System",
-    Skills: ["Node.js", "PHP", "RESTful APIs"],
-  },
-  {
-    id: 2,
-    Type: "Frontend & UI",
-    Skills: [
-      "Vite",
-      "React",
-      "Tailwind CSS",
-      "CSS",
-      "HTML",
-      "Javascript (ES6+)",
-    ],
-  },
-  {
-    id: 3,
-    Type: "Database & DevOps",
-    Skills: ["Git", "MySQL", "AI-Assisted Workflow"],
-  },
-  {
-    id: 4,
-    Type: "Design Architecture",
-    Skills: ["Minimalism", "BentoGrid", "UI/UX", "Responsive Web Design"],
-  },
-];
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters")
+});
 
 export default function HomePage() {
-  const [projectList, setProjectList] = useState([
-   
-    {
-      id: 1,
-      repoName: "yazzie-2.0",
-      Title: "Yazzie Catering OMS",
-      ImgLink: YazzieImg,
-      Description: "A web-based order management system designed for catering businesses to streamline event bookings, manage client relationships, process payments, and coordinate job assignments with role-based scoped access.",
-      ProjectLink: "https://github.com/k-r-y/yazzie-2.0",
-      Tech: ["PHP", "MySQL", "CSS3", "Bootstrap", "JavaScript"],
-      Views: "0",
-      Stars: "0",
-      Updated: "Jun 2026",
-    },
-    {
-      id: 2,
-      repoName: "skill-builder",
-      Title: "Skill Builder",
-      ImgLink: SkillBuilderImg,
-      Description: "A platform for building and showcasing skills with integrated AI generation and Markdown previews.",
-      ProjectLink: "https://github.com/k-r-y/skill-builder",
-      DemoLink: "https://kry-skill-builder.vercel.app",
-      Tech: ["React", "Tailwind CSS", "Vite", "GenAI"],
-      Views: "0",
-      Stars: "0",
-      Updated: "Aug 2026",
-    },
-    {
-      id: 3,
-      repoName: "project-context-generator",
-      Title: "Project Context Generator",
-      ImgLink: PcgImg,
-      Description: "A utility tool designed to generate project context for AI workflows and development environments with Firebase integration.",
-      ProjectLink: "https://github.com/k-r-y/project-context-generator",
-      DemoLink: "https://kry-project-context-generator.vercel.app",
-      Tech: ["React", "Firebase", "Zustand", "Framer Motion"],
-      Views: "0",
-      Stars: "0",
-      Updated: "Aug 2026",
-    },
-    {
-      id: 4,
-      repoName: "apertureProject",
-      Title: "Aperture Appointment System",
-      ImgLink: Aperture,
-      Description: "A web-based booking and management platform for photography and videography studios. Streamlines online package booking, consultation scheduling, invoicing, and image gallery uploads.",
-      ProjectLink: "https://github.com/k-r-y/apertureProject",
-      Tech: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
-      Views: "0",
-      Stars: "0",
-      Updated: "Jul 2026",
-    },
-    {
-      id: 5,
-      repoName: "randomGenerator",
-      Title: "Random Generator Utility",
-      ImgLink: RandomyImg,
-      Description: "A fast, interactive application for generating random values with visual feedback. Built with React 19, TypeScript, and Tailwind CSS, complete with celebratory confetti animations.",
-      ProjectLink: "https://github.com/k-r-y/randomGenerator",
-      DemoLink: "https://kry-random-generator.vercel.app",
-      Tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      Views: "0",
-      Stars: "0",
-      Updated: "Jul 2026",
-    },
-    
-  ]);
-  const galleryImages = [
-    { id: 1, title: "Profile", src: Pfp },
-  ];
 
   const [lightboxIndex, setLightboxIndex] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
 
-  useEffect(() => {
-    document.title = "Prince Andrew Casiano | Portfolio";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Portfolio of Prince Andrew Casiano, a Full-Stack Software Engineer & BSIS Student specializing in building responsive, scalable web applications and intuitive UI/UX design systems."
-      );
-    }
-  }, []);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting: formSubmitting },
+  } = useForm({
+    resolver: zodResolver(formSchema),
+  });
 
   useEffect(() => {
     if (lightboxIndex === null) return;
@@ -189,43 +59,46 @@ export default function HomePage() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [lightboxIndex, galleryImages.length]);
+  }, [lightboxIndex]);
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(event.target);
-    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
-
+  const onSubmit = async (data) => {
     try {
+      const formData = new FormData();
+      formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("message", data.message);
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
       });
 
-      const data = await response.json();
-      if (data.success) {
+      const result = await response.json();
+      if (result.success) {
         setToastType("success");
         setToastMessage("Message sent successfully! I'll get back to you soon.");
         setShowToast(true);
-        event.target.reset();
+        reset();
       } else {
         setToastType("error");
-        setToastMessage(data.message || "Failed to send message. Please try again.");
+        setToastMessage(result.message || "Failed to send message. Please try again.");
         setShowToast(true);
       }
-    } catch (error) {
+    } catch (err) {
+      console.error(err);
       setToastType("error");
       setToastMessage("An error occurred. Please check your network connection.");
       setShowToast(true);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
   return (
     <>
+      <Helmet>
+        <title>Prince Andrew Casiano | Portfolio</title>
+        <meta name="description" content="Portfolio of Prince Andrew Casiano, a Full-Stack Software Engineer & BSIS Student specializing in building responsive, scalable web applications and intuitive UI/UX design systems." />
+      </Helmet>
       <main className="w-full flex justify-center items-center pb-20  text-neutral-850 dark:text-neutral-200 ">
         <div className="flex flex-col min-h-screen  justify-center items-center max-w-6xl px-1 py-5 gap-3 w-full">
           <div className="  flex flex-col lg:flex-row gap-3 justify-center items-start w-full">
@@ -512,7 +385,7 @@ export default function HomePage() {
                 <form
                   action=""
                   className="flex flex-col justify-start items-start gap-8 w-full h-full"
-                  onSubmit={onSubmit}
+                  onSubmit={handleSubmit(onSubmit)}
                 >
                   <div className="flex justify-start items-center flex-col sm:flex-row  w-full gap-5">
                     <div className="w-full flex flex-col justify-start items-start gap-1.5">
@@ -521,13 +394,12 @@ export default function HomePage() {
                       </label>
                       <input
                         type="text"
-                        name="name"
-                        id=""
-                        disabled={isSubmitting}
+                        {...register("name")}
+                        disabled={formSubmitting}
                         className="text-xs bg-transparent border-b border-b-neutral-200 dark:border-b-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-700 focus:border-b-neutral-950 dark:focus:border-b-neutral-500 focus:outline-0 w-full px-4 py-2 disabled:opacity-50 transition-all duration-200 font-mono"
                         placeholder="Juan Dela Cruz"
-                        required
                       />
+                      {errors.name && <span className="text-red-500 text-[10px] font-mono">{errors.name.message}</span>}
                     </div>
 
                     <div className="w-full flex flex-col justify-start items-start gap-1.5">
@@ -536,13 +408,12 @@ export default function HomePage() {
                       </label>
                       <input
                         type="email"
-                        name="email"
-                        id=""
-                        disabled={isSubmitting}
+                        {...register("email")}
+                        disabled={formSubmitting}
                         className="text-xs bg-transparent border-b border-b-neutral-200 dark:border-b-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-700 focus:border-b-neutral-950 dark:focus:border-b-neutral-500 focus:outline-0 w-full px-4 py-2 disabled:opacity-50 transition-all duration-200 font-mono"
                         placeholder="helloWorld@email.com"
-                        required
                       />
+                      {errors.email && <span className="text-red-500 text-[10px] font-mono">{errors.email.message}</span>}
                     </div>
                   </div>
 
@@ -551,14 +422,13 @@ export default function HomePage() {
                       Message:
                     </label>
                     <textarea
-                      name="message"
-                      disabled={isSubmitting}
+                      {...register("message")}
+                      disabled={formSubmitting}
                       className="text-xs bg-transparent border-b border-b-neutral-200 dark:border-b-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-700 focus:border-b-neutral-950 dark:focus:border-b-neutral-500 focus:outline-0 w-full px-4 py-2 disabled:opacity-50 transition-all duration-200 font-mono"
                       placeholder="Your message details here..."
-                      id=""
                       rows={6}
-                      required
                     ></textarea>
+                    {errors.message && <span className="text-red-500 text-[10px] font-mono">{errors.message.message}</span>}
                   </div>
 
                   <div className="flex justify-between items-center w-full mt-4">
@@ -585,10 +455,10 @@ export default function HomePage() {
                     </div>
                     <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={formSubmitting}
                       className="bg-neutral-950 text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 py-3 px-8 text-xs font-semibold rounded shadow-sm disabled:bg-neutral-300 dark:disabled:bg-neutral-800 disabled:text-neutral-500 disabled:cursor-not-allowed transition duration-200 flex items-center gap-2 cursor-pointer font-poppins"
                     >
-                      {isSubmitting ? (
+                      {formSubmitting ? (
                         <>
                           <svg className="animate-spin h-4 w-4 text-black dark:text-white" fill="none" viewBox="0 0 24 24">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />

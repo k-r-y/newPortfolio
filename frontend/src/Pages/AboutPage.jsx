@@ -1,19 +1,9 @@
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { FaRegUser } from "react-icons/fa6";
 import { BiBookOpen, BiAward, BiHeart, BiBriefcase } from "react-icons/bi";
 import Pfp from "./../assets/pic.webp";
 
 export default function AboutPage() {
-  useEffect(() => {
-    document.title = "About | Prince Andrew Casiano";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Learn about Prince Andrew Casiano's academic journey at Kolehiyo ng Lungsod ng Dasmariñas, certification goals, soft skills, and personal interests in web design and system architecture."
-      );
-    }
-  }, []);
 
   const education = [
     {
@@ -58,8 +48,13 @@ export default function AboutPage() {
   const interests = ["UI/UX Design", "AI workflows", "Open Source", "Photography", "System Architecture"];
 
   return (
-    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 text-neutral-800 dark:text-neutral-200 min-h-screen">
-      <div className="max-w-4xl w-full flex flex-col gap-8">
+    <>
+      <Helmet>
+        <title>About | Prince Andrew Casiano</title>
+        <meta name="description" content="Learn about Prince Andrew Casiano's academic journey at Kolehiyo ng Lungsod ng Dasmariñas, certification goals, soft skills, and personal interests in web design and system architecture." />
+      </Helmet>
+      <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 text-neutral-800 dark:text-neutral-200 min-h-screen">
+        <div className="max-w-4xl w-full flex flex-col gap-8">
         
         {/* Profile Intro Section */}
         <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 md:p-8 bg-white dark:bg-neutral-800/50 flex flex-col md:flex-row gap-6 items-center md:items-start w-full">
@@ -165,5 +160,6 @@ export default function AboutPage() {
 
       </div>
     </main>
+    </>
   );
 }

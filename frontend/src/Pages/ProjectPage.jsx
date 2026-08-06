@@ -1,210 +1,47 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, Fragment } from "react";
 import { BiFolder, BiStar, BiShow, BiLinkExternal, BiChevronDown, BiChevronUp, BiFile } from "react-icons/bi";
+import { Helmet } from "react-helmet-async";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
-import Bg from "./../assets/bg.webp";
-import Aperture from "./../assets/aperture.webp";
+import { projectList, fallbackReadmes } from "../constants/data";
 
 export default function ProjectPage() {
-  const [projectList, setProjectList] = useState([
-    {
-      id: 1,
-      repoName: "grade",
-      Title: "Grade Portal System",
-      ImgLink: Aperture,
-      Description: "A web-based grading system that automates academic workflows for Kolehiyo ng Lungsod ng Dasmariñas. Allows teachers to manage classes and transmute grades to the 1.0–5.0 scale, while students view performance records.",
-      ProjectLink: "https://github.com/k-r-y/grade",
-      Tech: ["PHP", "MySQL", "Bootstrap", "CSS"],
-      Category: "Fullstack",
-      Views: "0",
-      Stars: "0",
-      Updated: "Jul 2026",
-    },
-    {
-      id: 2,
-      repoName: "yazzie-2.0",
-      Title: "Yazzie Catering OMS",
-      ImgLink: Bg,
-      Description: "A web-based order management system designed for catering businesses to streamline event bookings, manage client relationships, process payments, and coordinate job assignments with role-based scoped access.",
-      ProjectLink: "https://github.com/k-r-y/yazzie-2.0",
-      Tech: ["PHP", "MySQL", "CSS3", "Bootstrap", "JavaScript"],
-      Category: "Fullstack",
-      Views: "0",
-      Stars: "0",
-      Updated: "Jun 2026",
-    },
-    {
-      id: 3,
-      repoName: "randomGenerator",
-      Title: "Random Generator Utility",
-      ImgLink: Bg,
-      Description: "A fast, interactive application for generating random values with visual feedback. Built with React 19, TypeScript, and Tailwind CSS, complete with celebratory confetti animations.",
-      ProjectLink: "https://github.com/k-r-y/randomGenerator",
-      Tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      Category: "Frontend",
-      Views: "0",
-      Stars: "0",
-      Updated: "Jul 2026",
-    },
-    {
-      id: 4,
-      repoName: "apertureProject",
-      Title: "Aperture Appointment System",
-      ImgLink: Aperture,
-      Description: "A web-based booking and management platform for photography and videography studios. Streamlines online package booking, consultation scheduling, invoicing, and image gallery uploads.",
-      ProjectLink: "https://github.com/k-r-y/apertureProject",
-      Tech: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
-      Category: "Fullstack",
-      Views: "0",
-      Stars: "0",
-      Updated: "Jul 2026",
-    },
-    {
-      id: 5,
-      repoName: "skill-builder",
-      Title: "Skill Builder",
-      ImgLink: Bg,
-      Description: "A platform for building and showcasing skills with integrated AI generation and Markdown previews.",
-      ProjectLink: "https://github.com/k-r-y/skill-builder",
-      DemoLink: "https://kry-skill-builder.vercel.app",
-      Tech: ["React", "Tailwind CSS", "Vite", "GenAI"],
-      Category: "Frontend",
-      Views: "0",
-      Stars: "0",
-      Updated: "Aug 2026",
-    },
-    {
-      id: 6,
-      repoName: "project-context-generator",
-      Title: "Project Context Generator",
-      ImgLink: Bg,
-      Description: "A utility tool designed to generate project context for AI workflows and development environments with Firebase integration.",
-      ProjectLink: "https://github.com/k-r-y/project-context-generator",
-      DemoLink: "https://kry-project-context-generator.vercel.app",
-      Tech: ["React", "Firebase", "Zustand", "Framer Motion"],
-      Category: "Frontend",
-      Views: "0",
-      Stars: "0",
-      Updated: "Aug 2026",
-    },
-  ]);
-
-  const [activeCategory, setActiveCategory] = useState("All");
-  const categories = ["All", "Fullstack", "Frontend", "Backend"];
-  
   // Track which project's README drawer is open
   const [expandedRepo, setExpandedRepo] = useState(null);
   
-  // Store fetched README contents, pre-seeded with local content as fallback
-  const [readmes, setReadmes] = useState({
-    grade: `KLD Grade System
-
-Streamlined grade management and class coordination for Kolehiyo ng Lungsod ng Dasmariñas.
-
-Key Features:
-- Grade Management: Automated calculations with Excel ingestion and manual overrides.
-- Role-Based Access: Separate portals for admins, teachers, and students.
-- Instant Transmutation: Raw scores automatically converted to the 1.0–5.0 grading scale.
-- Real-Time Analytics: Monitor academic performance trends.
-- Secure Authentication: Email verification with OTP.
-
-Tech Stack:
-- Backend: PHP 8.0+
-- Database: MySQL / MariaDB
-- Frontend: HTML5, CSS3 (Verdant Design System), Bootstrap 5
-- Email: PHPMailer + Gmail SMTP
-- Excel Parsing: SheetJS`,
-    
-    "yazzie-2.0": `Yazzie Catering OMS
-
-Order management system for catering operations with booking, payments, and staff coordination.
-
-Key Features:
-- Booking Management: Pax-based pricing tiers and dynamic quotations.
-- Payment Processing: Deposit tracking with audit trails.
-- Role-Based Access: Super admin, admin, frontdesk, and staff roles.
-- Comprehensive Audit Log: History of financial and booking changes.
-
-Tech Stack:
-- Backend: PHP 8.0+ (procedural, no framework)
-- Database: MySQL 8.0+
-- Frontend: HTML5, CSS3, Bootstrap 5, Vanilla JavaScript
-- Email: PHPMailer + Gmail SMTP`,
-    
-    randomGenerator: `Random Generator
-
-A React-based random value generator with celebratory animations and a polished user interface.
-
-Key Features:
-- Random Generation: Instantly generate random values with a single click.
-- Confetti Animations: Canvas-based confetti effects.
-- Responsive Design: Fully responsive UI built with Tailwind CSS.
-- Type Safe: TypeScript support throughout the codebase.
-
-Tech Stack:
-- Frontend: React 19, TypeScript
-- Styling: Tailwind CSS 4, Lucide React Icons
-- Build Tool: Vite 8`,
-    
-    apertureProject: `Aperture Studio Management System
-
-A web-based booking and management platform for photography and videography studios.
-
-Key Features:
-- Online Booking: Select packages, add-ons, and dates with real-time price calculation.
-- Admin Dashboard: Overview of bookings, revenue, and activity metrics.
-- Event Calendar: Visual schedule of upcoming and completed events.
-- Invoicing: Generate PDF invoices.
-
-Tech Stack:
-- Backend: PHP
-- Database: MySQL
-- Frontend: HTML, CSS, JavaScript`,
-
-    "skill-builder": `Skill Builder
-
-A React-based application for building, managing, and showcasing skills with integrated AI generation.
-
-Key Features:
-- AI Integration: Uses Google GenAI to automatically generate skill descriptions and configurations.
-- Markdown Previews: Real-time markdown rendering for skill descriptions.
-- Responsive UI: Built with Tailwind CSS and Radix UI components.
-- File Export: Easily export skill configurations as ZIP files.
-
-Tech Stack:
-- Frontend: React 19, Radix UI
-- AI: @google/genai
-- Styling: Tailwind CSS 3
-- Build Tool: Vite 8`,
-
-    "project-context-generator": `Project Context Generator
-
-A utility tool designed to generate comprehensive project contexts for AI workflows and development environments.
-
-Key Features:
-- Firebase Integration: Secure data storage and retrieval.
-- State Management: Efficient state handling using Zustand.
-- Animations: Smooth UI transitions using Framer Motion.
-- Markdown Support: Full markdown rendering for generated context.
-
-Tech Stack:
-- Frontend: React 19, React Router v7
-- State: Zustand
-- Backend/DB: Firebase
-- Styling: Tailwind CSS 4, Framer Motion
-- Build Tool: Vite 8`
-  });
+  // Store fetched README contents
+  const [readmes, setReadmes] = useState({});
   const [readmeLoading, setReadmeLoading] = useState({});
-
-  useEffect(() => {
-    document.title = "Projects | Prince Andrew Casiano";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Browse the portfolio projects built by Prince Andrew Casiano, including the Grade Portal System, Yazzie Catering OMS, Aperture Studio Booking, and custom React utilities."
-      );
+  const [activeCategory, setActiveCategory] = useState("All");
+  const categories = ["All", "Fullstack", "Frontend", "Backend"];
+  
+  const fetchReadme = async (repoName) => {
+    if (readmes[repoName]) return; // Already fetched
+    
+    setReadmeLoading(prev => ({ ...prev, [repoName]: true }));
+    
+    try {
+      // Try main branch first
+      let res = await fetch(`https://raw.githubusercontent.com/k-r-y/${repoName}/main/README.md`);
+      if (!res.ok) {
+        // Fallback to master branch
+        res = await fetch(`https://raw.githubusercontent.com/k-r-y/${repoName}/master/README.md`);
+      }
+      
+      if (res.ok) {
+        const text = await res.text();
+        setReadmes(prev => ({ ...prev, [repoName]: text }));
+      } else {
+        setReadmes(prev => ({ ...prev, [repoName]: fallbackReadmes[repoName] || "No README.md found for this repository." }));
+      }
+    } catch (err) {
+      console.error(err);
+      setReadmes(prev => ({ ...prev, [repoName]: fallbackReadmes[repoName] || "Failed to fetch README." }));
+    } finally {
+      setReadmeLoading(prev => ({ ...prev, [repoName]: false }));
     }
-  }, []);
+  };
 
   // Simple toggle for README drawer
   const handleToggleReadme = (repoName) => {
@@ -212,6 +49,7 @@ Tech Stack:
       setExpandedRepo(null);
     } else {
       setExpandedRepo(repoName);
+      fetchReadme(repoName);
     }
   };
 
@@ -220,8 +58,13 @@ Tech Stack:
     : projectList.filter(project => project.Category === activeCategory);
 
   return (
-    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32  text-neutral-800 dark:text-neutral-200 min-h-screen">
-      <div className="max-w-5xl w-full flex flex-col gap-8">
+    <>
+      <Helmet>
+        <title>Projects | Prince Andrew Casiano</title>
+        <meta name="description" content="Browse the portfolio projects built by Prince Andrew Casiano, including the Grade Portal System, Yazzie Catering OMS, Aperture Studio Booking, and custom React utilities." />
+      </Helmet>
+      <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32  text-neutral-800 dark:text-neutral-200 min-h-screen">
+        <div className="max-w-5xl w-full flex flex-col gap-8">
         
         {/* Header Section */}
         <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-800/50 w-full text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
@@ -365,9 +208,11 @@ Tech Stack:
                                   Fetching file content...
                                 </div>
                               ) : (
-                                <pre className="font-mono text-[10px] leading-relaxed text-neutral-600 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-950/60 p-4 border border-neutral-200/60 dark:border-neutral-850 rounded-lg overflow-auto max-h-72 whitespace-pre-wrap text-justify">
-                                  {readmes[project.repoName]}
-                                </pre>
+                                  <div className="markdown-body font-mono text-[10px] leading-relaxed text-neutral-600 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-950/60 p-4 border border-neutral-200/60 dark:border-neutral-850 rounded-lg overflow-auto max-h-72 whitespace-pre-wrap text-justify">
+                                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                                      {readmes[project.repoName]}
+                                    </ReactMarkdown>
+                                  </div>
                               )}
                             </div>
                           </td>
@@ -472,9 +317,11 @@ Tech Stack:
                             Fetching...
                           </div>
                         ) : (
-                          <pre className="font-mono text-[9px] leading-relaxed text-neutral-600 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-950/60 p-2.5 border border-neutral-200/60 dark:border-neutral-850 rounded overflow-auto max-h-56 whitespace-pre-wrap text-justify">
-                            {readmes[project.repoName]}
-                          </pre>
+                          <div className="markdown-body font-mono text-[9px] leading-relaxed text-neutral-600 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-950/60 p-2.5 border border-neutral-200/60 dark:border-neutral-850 rounded overflow-auto max-h-56 whitespace-pre-wrap text-justify">
+                            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                              {readmes[project.repoName]}
+                            </ReactMarkdown>
+                          </div>
                         )}
                       </div>
                     )}
@@ -491,5 +338,6 @@ Tech Stack:
 
       </div>
     </main>
+    </>
   );
 }

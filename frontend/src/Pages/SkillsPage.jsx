@@ -1,74 +1,17 @@
-import { useEffect } from "react";
-import { BiCodeAlt, BiServer, BiPaintRoll, BiTerminal } from "react-icons/bi";
-import { FaDatabase } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
+import { BiCodeAlt, BiTerminal } from "react-icons/bi";
+import { categories, tools } from "../constants/data";
 
 export default function SkillPage() {
-  useEffect(() => {
-    document.title = "Skills | Prince Andrew Casiano";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Explore the technical skillset and development tools of Prince Andrew Casiano, including React, Node.js, PHP, MySQL, Git, Tailwind CSS, and UI/UX BentoGrid design."
-      );
-    }
-  }, []);
-
-  const categories = [
-    {
-      id: 1,
-      title: "Frontend & UI Development",
-      icon: <BiCodeAlt className="text-xl text-neutral-800 dark:text-neutral-200" />,
-      skills: [
-        { name: "React / React 19", level: "30%" },
-        { name: "Vite & Build Tools", level: "35%" },
-        { name: "Tailwind CSS v4", level: "75%" },
-        { name: "JavaScript (ES6+)", level: "70%" },
-        { name: "HTML5 / Semantic markup", level: "85%" },
-        { name: "CSS3 / Custom properties", level: "80%" },
-      ]
-    },
-    {
-      id: 2,
-      title: "Backend & Systems",
-      icon: <BiServer className="text-xl text-neutral-800 dark:text-neutral-200" />,
-      skills: [
-        { name: "Node.js / Express", level: "20%" },
-        { name: "PHP (OOP & MVC)", level: "35%" },
-        { name: "RESTful API Design", level: "15%" },
-        { name: "Middleware & Auth (JWT)", level: "10%" },
-        { name: "Asynchronous Workflows", level: "10%" },
-      ]
-    },
-    {
-      id: 3,
-      title: "Database & DevOps",
-      icon: <FaDatabase className="text-lg text-neutral-800 dark:text-neutral-200" />,
-      skills: [
-        { name: "MySQL / Relational Design", level: "75%" },
-        { name: "Git & Version Control", level: "40%" },
-        { name: "Vercel / Netlify Deployments", level: "35%" },
-        { name: "AI-Assisted Dev Workflows", level: "10%" },
-      ]
-    },
-    {
-      id: 4,
-      title: "Design Architecture",
-      icon: <BiPaintRoll className="text-xl text-neutral-800 dark:text-neutral-200" />,
-      skills: [
-        { name: "Responsive Web Design", level: "85%" },
-        { name: "BentoGrid Layout Design", level: "70%" },
-        { name: "Minimalist Aesthetic Design", level: "75%" },
-        { name: "UI/UX Prototyping (Figma)", level: "65%" },
-      ]
-    }
-  ];
-
-  const tools = ["VS Code", "Git / GitHub", "npm / Node Package Manager", "Chrome DevTools", "Postman", "Web3Forms", "Figma"];
 
   return (
-    <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 text-neutral-800 dark:text-neutral-200 min-h-screen">
-      <div className="max-w-4xl w-full flex flex-col gap-8">
+    <>
+      <Helmet>
+        <title>Skills | Prince Andrew Casiano</title>
+        <meta name="description" content="Explore the technical skillset and development tools of Prince Andrew Casiano, including React, Node.js, PHP, MySQL, Git, Tailwind CSS, and UI/UX BentoGrid design." />
+      </Helmet>
+      <main className="w-full flex justify-center items-center py-10 px-4 md:px-8 pb-32 text-neutral-800 dark:text-neutral-200 min-h-screen">
+        <div className="max-w-4xl w-full flex flex-col gap-8">
         
         {/* Header Section */}
         <section className="border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm p-6 bg-white dark:bg-neutral-800/50 w-full text-center md:text-left">
@@ -131,5 +74,6 @@ export default function SkillPage() {
 
       </div>
     </main>
+    </>
   );
 }
