@@ -58,6 +58,34 @@ export default function ProjectPage() {
       Stars: "0",
       Updated: "Jul 2026",
     },
+    {
+      id: 5,
+      repoName: "skill-builder",
+      Title: "Skill Builder",
+      ImgLink: Bg,
+      Description: "A platform for building and showcasing skills with integrated AI generation and Markdown previews.",
+      ProjectLink: "https://github.com/k-r-y/skill-builder",
+      DemoLink: "https://kry-skill-builder.vercel.app",
+      Tech: ["React", "Tailwind CSS", "Vite", "GenAI"],
+      Category: "Frontend",
+      Views: "0",
+      Stars: "0",
+      Updated: "Aug 2026",
+    },
+    {
+      id: 6,
+      repoName: "project-context-generator",
+      Title: "Project Context Generator",
+      ImgLink: Bg,
+      Description: "A utility tool designed to generate project context for AI workflows and development environments with Firebase integration.",
+      ProjectLink: "https://github.com/k-r-y/project-context-generator",
+      DemoLink: "https://kry-project-context-generator.vercel.app",
+      Tech: ["React", "Firebase", "Zustand", "Framer Motion"],
+      Category: "Frontend",
+      Views: "0",
+      Stars: "0",
+      Updated: "Aug 2026",
+    },
   ]);
 
   const [activeCategory, setActiveCategory] = useState("All");
@@ -130,7 +158,40 @@ Key Features:
 Tech Stack:
 - Backend: PHP
 - Database: MySQL
-- Frontend: HTML, CSS, JavaScript`
+- Frontend: HTML, CSS, JavaScript`,
+
+    "skill-builder": `Skill Builder
+
+A React-based application for building, managing, and showcasing skills with integrated AI generation.
+
+Key Features:
+- AI Integration: Uses Google GenAI to automatically generate skill descriptions and configurations.
+- Markdown Previews: Real-time markdown rendering for skill descriptions.
+- Responsive UI: Built with Tailwind CSS and Radix UI components.
+- File Export: Easily export skill configurations as ZIP files.
+
+Tech Stack:
+- Frontend: React 19, Radix UI
+- AI: @google/genai
+- Styling: Tailwind CSS 3
+- Build Tool: Vite 8`,
+
+    "project-context-generator": `Project Context Generator
+
+A utility tool designed to generate comprehensive project contexts for AI workflows and development environments.
+
+Key Features:
+- Firebase Integration: Secure data storage and retrieval.
+- State Management: Efficient state handling using Zustand.
+- Animations: Smooth UI transitions using Framer Motion.
+- Markdown Support: Full markdown rendering for generated context.
+
+Tech Stack:
+- Frontend: React 19, React Router v7
+- State: Zustand
+- Backend/DB: Firebase
+- Styling: Tailwind CSS 4, Framer Motion
+- Build Tool: Vite 8`
   });
   const [readmeLoading, setReadmeLoading] = useState({});
 
@@ -266,14 +327,26 @@ Tech Stack:
                                 <BiStar className="text-xs" /> {project.Stars}
                               </span>
                             </div>
-                            <a
-                              href={project.ProjectLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-950 text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 rounded font-semibold font-poppins text-[10px] transition duration-200 cursor-pointer w-max shadow-2xs"
-                            >
-                              View Repository <BiLinkExternal />
-                            </a>
+                            <div className="flex gap-2">
+                              {project.DemoLink && (
+                                <a
+                                  href={project.DemoLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-1.5 px-3 py-1.5 bg-white text-dark border hover:scale-105 rounded font-semibold font-poppins text-[10px] transition duration-200 cursor-pointer w-max shadow-2xs"
+                                >
+                                  Live Demo <BiLinkExternal />
+                                </a>
+                              )}
+                              <a
+                                href={project.ProjectLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-950 text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 rounded font-semibold font-poppins text-[10px] transition duration-200 cursor-pointer w-max shadow-2xs"
+                              >
+                                View Repository <BiLinkExternal />
+                              </a>
+                            </div>
                           </div>
                         </td>
                       </tr>
@@ -364,14 +437,26 @@ Tech Stack:
                         >
                           {isExpanded ? "Close Info" : "Readme"}
                         </button>
-                        <a
-                          href={project.ProjectLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 px-2.5 py-1.5 bg-neutral-950 text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 rounded font-semibold font-poppins text-[10px] transition duration-200 cursor-pointer shadow-2xs"
-                        >
-                          Code <BiLinkExternal />
-                        </a>
+                        <div className="flex items-center gap-1.5">
+                          {project.DemoLink && (
+                            <a
+                              href={project.DemoLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1 px-2.5 py-1.5 bg-black text-white hover:bg-black dark:bg-black dark:hover:bg-black rounded font-semibold font-poppins text-[10px] transition duration-200 cursor-pointer shadow-2xs"
+                            >
+                              Demo <BiLinkExternal />
+                            </a>
+                          )}
+                          <a
+                            href={project.ProjectLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 px-2.5 py-1.5 bg-neutral-950 text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 rounded font-semibold font-poppins text-[10px] transition duration-200 cursor-pointer shadow-2xs"
+                          >
+                            Code <BiLinkExternal />
+                          </a>
+                        </div>
                       </div>
                     </div>
                     

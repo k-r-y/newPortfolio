@@ -12,6 +12,11 @@ import ProjectCard from "../components/ProjectCard";
 import SkillCard from "../components/SkillCard";
 import StatsCard from "../components/StatsCard";
 import ContactBg from "./../assets/contactBg.webp";
+import SkillBuilderImg from './../assets/skillBuilder.png'
+import RandomyImg from './../assets/randomy.png'
+import PcgImg from './../assets/pcg.png'
+import YazzieImg from './../assets/yazzie.png'
+
 
 const contactDetails = [
   {
@@ -31,12 +36,12 @@ const stats = [
   {
     id: 1,
     Title: "Projects",
-    Value: 3,
+    Value: 5,
   },
   {
     id: 2,
     Title: "Technologies",
-    Value: 2,
+    Value: "10+",
   },
   {
     id: 3,
@@ -80,23 +85,12 @@ const techStack = [
 
 export default function HomePage() {
   const [projectList, setProjectList] = useState([
+   
     {
       id: 1,
-      repoName: "grade",
-      Title: "Grade Portal System",
-      ImgLink: Aperture,
-      Description: "A web-based grading system that automates academic workflows for Kolehiyo ng Lungsod ng Dasmariñas. Allows teachers to manage classes and transmute grades to the 1.0–5.0 scale, while students view performance records.",
-      ProjectLink: "https://github.com/k-r-y/grade",
-      Tech: ["PHP", "MySQL", "Bootstrap", "JavaScript"],
-      Views: "0",
-      Stars: "0",
-      Updated: "Jul 2026",
-    },
-    {
-      id: 2,
       repoName: "yazzie-2.0",
       Title: "Yazzie Catering OMS",
-      ImgLink: Bg,
+      ImgLink: YazzieImg,
       Description: "A web-based order management system designed for catering businesses to streamline event bookings, manage client relationships, process payments, and coordinate job assignments with role-based scoped access.",
       ProjectLink: "https://github.com/k-r-y/yazzie-2.0",
       Tech: ["PHP", "MySQL", "CSS3", "Bootstrap", "JavaScript"],
@@ -105,16 +99,30 @@ export default function HomePage() {
       Updated: "Jun 2026",
     },
     {
-      id: 3,
-      repoName: "randomGenerator",
-      Title: "Random Generator Utility",
-      ImgLink: Bg,
-      Description: "A fast, interactive application for generating random values with visual feedback. Built with React 19, TypeScript, and Tailwind CSS, complete with celebratory confetti animations.",
-      ProjectLink: "https://github.com/k-r-y/randomGenerator",
-      Tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      id: 2,
+      repoName: "skill-builder",
+      Title: "Skill Builder",
+      ImgLink: SkillBuilderImg,
+      Description: "A platform for building and showcasing skills with integrated AI generation and Markdown previews.",
+      ProjectLink: "https://github.com/k-r-y/skill-builder",
+      DemoLink: "https://kry-skill-builder.vercel.app",
+      Tech: ["React", "Tailwind CSS", "Vite", "GenAI"],
       Views: "0",
       Stars: "0",
-      Updated: "Jul 2026",
+      Updated: "Aug 2026",
+    },
+    {
+      id: 3,
+      repoName: "project-context-generator",
+      Title: "Project Context Generator",
+      ImgLink: PcgImg,
+      Description: "A utility tool designed to generate project context for AI workflows and development environments with Firebase integration.",
+      ProjectLink: "https://github.com/k-r-y/project-context-generator",
+      DemoLink: "https://kry-project-context-generator.vercel.app",
+      Tech: ["React", "Firebase", "Zustand", "Framer Motion"],
+      Views: "0",
+      Stars: "0",
+      Updated: "Aug 2026",
     },
     {
       id: 4,
@@ -128,17 +136,23 @@ export default function HomePage() {
       Stars: "0",
       Updated: "Jul 2026",
     },
+    {
+      id: 5,
+      repoName: "randomGenerator",
+      Title: "Random Generator Utility",
+      ImgLink: RandomyImg,
+      Description: "A fast, interactive application for generating random values with visual feedback. Built with React 19, TypeScript, and Tailwind CSS, complete with celebratory confetti animations.",
+      ProjectLink: "https://github.com/k-r-y/randomGenerator",
+      DemoLink: "https://kry-random-generator.vercel.app",
+      Tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      Views: "0",
+      Stars: "0",
+      Updated: "Jul 2026",
+    },
+    
   ]);
   const galleryImages = [
-    { id: 1, title: "Certificate of Completion", src: Bg },
-    { id: 2, title: "Developer Workspace Setup", src: Pfp },
-    { id: 3, title: "Logic Workflow Diagram", src: Aperture },
-    { id: 4, title: "Modern UI System Showcase", src: ContactBg },
-    { id: 5, title: "Hackathon Event Snapshot", src: Bg },
-    { id: 6, title: "Database Schema Architecture", src: Aperture },
-    { id: 7, title: "RESTful API Blueprint Design", src: Bg },
-    { id: 8, title: "Frontend Component Hierarchy", src: Pfp },
-    { id: 9, title: "Deployment Pipeline Stats", src: ContactBg },
+    { id: 1, title: "Profile", src: Pfp },
   ];
 
   const [lightboxIndex, setLightboxIndex] = useState(null);
@@ -464,6 +478,7 @@ export default function HomePage() {
                          Views={project.Views}
                          Stars={project.Stars}
                          Updated={project.Updated}
+                         DemoLink={project.DemoLink}
                        />
                     );
                   })}

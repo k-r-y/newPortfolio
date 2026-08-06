@@ -48,14 +48,14 @@ function AppContent() {
       {/* Background wireframe layout gridlines (Z-0) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Vertical lines */}
-        <div className="absolute left-[6%] md:left-[12%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40 "></div>
-        <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40 hidden lg:block"></div>
-        <div className="absolute right-[6%] md:right-[12%] top-0 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
+        <div className="absolute left-[6%] md:left-[12%] top-0 bottom-0 w-[1px] bg-neutral-300 dark:bg-neutral-800/50 "></div>
+        <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-neutral-300 dark:bg-neutral-800/50 hidden lg:block"></div>
+        <div className="absolute right-[6%] md:right-[12%] top-0 bottom-0 w-[1px] bg-neutral-300 dark:bg-neutral-800/50"></div>
 
         {/* Horizontal lines */}
-        <div className="absolute top-20 left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
-        <div className="absolute top-[40%] left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
-        <div className="absolute top-[75%] left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800/40"></div>
+        <div className="absolute top-20 left-0 right-0 h-[1px] bg-neutral-300 dark:bg-neutral-800/50"></div>
+        <div className="absolute top-[40%] left-0 right-0 h-[1px] bg-neutral-300 dark:bg-neutral-800/50"></div>
+        <div className="absolute top-[75%] left-0 right-0 h-[1px] bg-neutral-300 dark:bg-neutral-800/50"></div>
       </div>
 
       {/* Theme Toggle Button - Floating at Top Left */}
@@ -87,7 +87,7 @@ function AppContent() {
 
       {/* Bottom Navigation Bar */}
       <nav className="flex justify-center items-center fixed z-20 bottom-3 inset-x-0">
-        <ul className="flex justify-between items-center h-full rounded-full bg-neutral-500/10 dark:bg-neutral-900/65 backdrop-blur-sm border border-neutral-200 dark:border-neutral-800 px-2 gap-1 py-1.5 w-full max-w-90 shadow-md dark:shadow-2xl text-neutral-500 dark:text-neutral-400">
+        <ul className="flex justify-between items-center h-full rounded-full bg-neutral-500/30 dark:bg-neutral-900/70 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 px-2 gap-1 py-1.5 w-full max-w-90 shadow-md dark:shadow-2xl text-neutral-500 dark:text-neutral-400">
           <li className="flex-1">
             <NavLink
               to="/"

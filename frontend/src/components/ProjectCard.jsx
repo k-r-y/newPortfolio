@@ -6,7 +6,8 @@ export default function ProjectCard({
   Tech = [],
   Views = "0",
   Stars = "0",
-  Updated = "N/A"
+  Updated = "N/A",
+  DemoLink
 }) {
   // Ensure link starts with http:// or https:// to prevent broken relative navigation
   const sanitizedLink = ProjectLink && (ProjectLink.startsWith("http://") || ProjectLink.startsWith("https://"))
@@ -69,15 +70,25 @@ export default function ProjectCard({
           </div>
         </div>
 
-        {/* View More Link Button */}
-        <div className="p-3 bg-neutral-50/50 dark:bg-neutral-950/20 flex justify-center">
+        {/* Action Buttons */}
+        <div className="p-3 bg-neutral-50/50 dark:bg-neutral-950/20 flex justify-center gap-2">
+          {DemoLink && (
+            <a
+              href={DemoLink.startsWith("http") ? DemoLink : `https://${DemoLink}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full text-center py-2 px-4 border border-transparent rounded-md bg-black dark:bg-white text-white dark:text-black  text-xs font-semibold font-poppins transition-colors duration-250 cursor-pointer shadow-2xs"
+            >
+              Live Demo
+            </a>
+          )}
           <a
             href={sanitizedLink}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full text-center py-2 px-4 border border-neutral-200 dark:border-neutral-800 rounded-md bg-white dark:bg-neutral-950 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-950 hover:text-white dark:hover:bg-white dark:hover:text-black hover:border-neutral-950 dark:hover:border-white text-xs font-semibold font-poppins transition-colors duration-250 cursor-pointer shadow-2xs"
           >
-            View More
+            {DemoLink ? "Code" : "View More"}
           </a>
         </div>
       </div>
