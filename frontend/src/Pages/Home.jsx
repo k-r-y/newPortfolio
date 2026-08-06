@@ -13,6 +13,7 @@ import ContactDetailsCard from "../components/ContactDetailsCard";
 import ProjectCard from "../components/ProjectCard";
 import SkillCard from "../components/SkillCard";
 import StatsCard from "../components/StatsCard";
+import MusicPlayer from "../components/MusicPlayer";
 import ContactBg from "./../assets/contactBg.webp";
 
 import { contactDetails, stats, techStack, projectList, galleryImages } from "../constants/data";
@@ -212,6 +213,9 @@ export default function HomePage() {
                   )}
                 </div>
               </div>
+
+              {/* Music Player */}
+              <MusicPlayer />
 
               {/* Gallery */}
               <div className="border border-neutral-200 dark:border-neutral-800  p-5 rounded-lg shadow-sm w-full bg-white dark:bg-neutral-800/50 text-neutral-800 dark:text-neutral-200">
