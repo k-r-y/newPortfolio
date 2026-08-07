@@ -16,7 +16,8 @@ import StatsCard from "../components/StatsCard";
 import MusicPlayer from "../components/MusicPlayer";
 import ContactBg from "./../assets/contactBg.webp";
 
-import { contactDetails, stats, techStack, projectList, galleryImages } from "../constants/data";
+import { contactDetails, stats, techStack, galleryImages } from "../constants/data";
+import { useGithubProjects } from "../hooks/useGithubProjects";
 
 const totalItems = stats.length;
 const middle = Math.floor(totalItems / 2);
@@ -28,6 +29,7 @@ const formSchema = z.object({
 });
 
 export default function HomePage() {
+  const { projects: projectList } = useGithubProjects();
 
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [showToast, setShowToast] = useState(false);

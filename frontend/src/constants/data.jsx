@@ -185,4 +185,48 @@ A web-based booking and management platform for photography and videography stud
 - **Backend:** PHP
 - **Database:** MySQL
 - **Frontend:** HTML, CSS, JavaScript`,
+
+  "skill-builder": `## Skill Builder
+
+A platform for building and showcasing skills with integrated AI generation and Markdown previews.
+
+### Key Features:
+- **AI Integration:** Automatically generate context and content.
+- **Markdown Previews:** Real-time rendering of complex markdown structures.
+- **Dynamic Portfolios:** Export and showcase generated skills.
+
+### Tech Stack:
+- **Frontend:** React, Tailwind CSS, Vite
+- **AI Integration:** Google GenAI
+- **State Management:** React Hooks Context`,
+
+  "project-context-generator": `## Project Context Generator
+
+A utility tool designed to generate project context for AI workflows and development environments with Firebase integration.
+
+### Key Features:
+- **Context Aggregation:** Bundle code structures into single context files.
+- **Firebase Sync:** Store and retrieve context across devices.
+- **Animated UI:** Smooth transitions with Framer Motion.
+
+### Tech Stack:
+- **Frontend:** React, Vite
+- **State Management:** Zustand
+- **Database & Auth:** Firebase
+- **Styling & Animation:** Tailwind CSS, Framer Motion`,
+
+  "randomGenerator": `## Random Generator Utility
+
+A fast, interactive application for generating random values with visual feedback. Built with React 19, TypeScript, and Tailwind CSS, complete with celebratory confetti animations.
+
+### Key Features:
+- **Number Generation:** Min/max ranged generation with immediate feedback.
+- **List Randomization:** Pick a random winner from a custom list.
+- **Celebration Effects:** Confetti animations trigger on successful picks.
+- **Modern Stack:** Fully typed with TypeScript on React 19.
+
+### Tech Stack:
+- **Framework:** React 19, Vite
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS`
 };

@@ -4,9 +4,12 @@ import { Helmet } from "react-helmet-async";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
-import { projectList, fallbackReadmes } from "../constants/data";
+import { fallbackReadmes } from "../constants/data";
+import { useGithubProjects } from "../hooks/useGithubProjects";
 
 export default function ProjectPage() {
+  const { projects: projectList } = useGithubProjects();
+  
   // Track which project's README drawer is open
   const [expandedRepo, setExpandedRepo] = useState(null);
   
