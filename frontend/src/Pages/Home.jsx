@@ -173,12 +173,12 @@ export default function HomePage() {
                   </div>
 
                   <div className="flex gap-2 w-full mt-2">
-                    <a
-                      href=""
-                      className="btn border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-200 py-1.5 px-3 rounded-md w-full font-semibold font-poppins text-xs text-center transition-colors duration-200 shadow-2xs"
+                    <button
+                      disabled
+                      className="btn border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 text-neutral-400 dark:text-neutral-500 py-1.5 px-3 rounded-md w-full font-semibold font-poppins text-xs text-center transition-colors duration-200 cursor-not-allowed"
                     >
-                      Download CV
-                    </a>
+                      CV Coming Soon
+                    </button>
 
                     <a
                       href="#contact"
